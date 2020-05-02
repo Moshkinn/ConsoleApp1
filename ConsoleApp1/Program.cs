@@ -8,15 +8,48 @@ namespace SoloLearn
 {
     class Program
     {
-       
-       
-    static void Main(string[] args)
+        class Shape
         {
-            int[] arr = { 8, 5, 4 };
-            Array.Reverse(arr);
-            double x = Math.Pow(arr[0], 2);
-            Console.WriteLine("ath.Pow(arr[0], 2) = " + x);
-            
+            public Shape()
+            {
+                Console.WriteLine("New shape");
+            }
+            public virtual void Draw()
+            {
+                Console.Write("Base Draw");
+            }
+        }
+        class Circle : Shape
+        {
+            public override void Draw()
+            {
+                // draw a circle...
+                Console.WriteLine("Circle Draw");
+            }
+        }
+        class Rectangle : Shape
+        {
+            public override void Draw()
+            {
+                // draw a rectangle...
+                Console.WriteLine("Rect Draw");
+            }
+        }
+        static void Main(string[] args)
+        {
+            Shape c = new Circle();
+            c.Draw();
+
+            Shape r = new Rectangle();
+            r.Draw();
+
+            Circle cc = new Circle();
+            cc.Draw();
+
+            Shape s = new Shape();
+            s.Draw();
+
+            Console.ReadLine();
         }
     }
 }
