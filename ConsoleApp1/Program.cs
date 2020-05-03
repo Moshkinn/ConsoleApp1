@@ -8,20 +8,13 @@ namespace SoloLearn
 {
     class Program
     {
-        class Shape
+        public interface Shape
         {
-            public Shape()
-            {
-                Console.WriteLine("New shape");
-            }
-            public virtual void Draw()
-            {
-                Console.Write("Base Draw");
-            }
+            void Draw();
         }
         class Circle : Shape
         {
-            public override void Draw()
+            public  void Draw()
             {
                 // draw a circle...
                 Console.WriteLine("Circle Draw");
@@ -29,25 +22,36 @@ namespace SoloLearn
         }
         class Rectangle : Shape
         {
-            public override void Draw()
+            public  void Draw()
             {
                 // draw a rectangle...
                 Console.WriteLine("Rect Draw");
             }
         }
+        class Car
+        {
+            string name;
+            public Car(string nm)
+            {
+                name = nm;
+                Motor m = new Motor();
+            }
+            public class Motor
+            {
+                // some code
+                public Motor()
+                {
+                    Console.WriteLine("new motor");
+                }
+                
+            }
+        }
         static void Main(string[] args)
         {
+            Car a = new Car("Merc");
+            
             Shape c = new Circle();
             c.Draw();
-
-            Shape r = new Rectangle();
-            r.Draw();
-
-            Circle cc = new Circle();
-            cc.Draw();
-
-            Shape s = new Shape();
-            s.Draw();
 
             Console.ReadLine();
         }
