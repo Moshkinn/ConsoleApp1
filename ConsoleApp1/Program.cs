@@ -8,52 +8,37 @@ namespace SoloLearn
 {
     class Program
     {
-        public interface Shape
+        struct Point
         {
-            void Draw();
-        }
-        class Circle : Shape
-        {
-            public  void Draw()
+            public int x;
+            public int y;
+            public Point(int x, int y)
             {
-                // draw a circle...
-                Console.WriteLine("Circle Draw");
+                this.x = x;
+                this.y = y;
             }
         }
-        class Rectangle : Shape
-        {
-            public  void Draw()
-            {
-                // draw a rectangle...
-                Console.WriteLine("Rect Draw");
-            }
-        }
-        class Car
-        {
-            string name;
-            public Car(string nm)
-            {
-                name = nm;
-                Motor m = new Motor();
-            }
-            public class Motor
-            {
-                // some code
-                public Motor()
-                {
-                    Console.WriteLine("new motor");
-                }
-                
-            }
-        }
+        enum Days { Sun=1, Mon, Tue, Wed, Thu, Fri, Sat };
+
         static void Main(string[] args)
         {
-            Car a = new Car("Merc");
-            
-            Shape c = new Circle();
-            c.Draw();
+            Days d = Days.Sat;
+
+            Console.WriteLine("day  - " + d);
+
+            switch (d)
+            {
+                case Days.Fri:
+                    Console.WriteLine("no work! but home! ");
+                    break;
+                case Days.Sat:
+                    Console.WriteLine("no work! it is sat!");
+                    break;
+            }
+
 
             Console.ReadLine();
         }
     }
 }
+
