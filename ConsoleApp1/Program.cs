@@ -8,37 +8,35 @@ namespace SoloLearn
 {
     class Program
     {
-        struct Point
-        {
-            public int x;
-            public int y;
-            public Point(int x, int y)
-            {
-                this.x = x;
-                this.y = y;
-            }
-        }
-        enum Days { Sun=1, Mon, Tue, Wed, Thu, Fri, Sat };
-
         static void Main(string[] args)
         {
-            Days d = Days.Sat;
-
-            Console.WriteLine("day  - " + d);
-
-            switch (d)
-            {
-                case Days.Fri:
-                    Console.WriteLine("no work! but home! ");
-                    break;
-                case Days.Sat:
-                    Console.WriteLine("no work! it is sat!");
-                    break;
-            }
-
-
-            Console.ReadLine();
+            int x = 1;
+            int y = 2;
+            while (x!=y) 
+                {
+                    try
+                    {
+                        Console.WriteLine("type x and y. ");
+                        x = Convert.ToInt32(Console.ReadLine());
+                        y = Convert.ToInt32(Console.ReadLine());
+                        Console.Write("x/y = ");
+                        Console.WriteLine(x / y);
+                    }
+                    catch (DivideByZeroException e)
+                    {
+                        Console.WriteLine("Cannot divide by 0");
+                    }
+                    catch (Exception e)
+                    {
+                        Console.WriteLine("An error occurred");
+                    }
+                finally
+                {
+                    Console.WriteLine("finally.");
+                }
+                }
+            
+        
         }
     }
 }
-
