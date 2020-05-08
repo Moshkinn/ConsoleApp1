@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace SoloLearn
 {
@@ -10,31 +11,25 @@ namespace SoloLearn
     {
         static void Main(string[] args)
         {
-            int x = 1;
-            int y = 2;
-            while (x!=y) 
-                {
-                    try
+            string str = "Some text";
+            //str = Console.ReadLine();
+            try
                     {
-                        Console.WriteLine("type x and y. ");
-                        x = Convert.ToInt32(Console.ReadLine());
-                        y = Convert.ToInt32(Console.ReadLine());
-                        Console.Write("x/y = ");
-                        Console.WriteLine(x / y);
-                    }
-                    catch (DivideByZeroException e)
-                    {
-                        Console.WriteLine("Cannot divide by 0");
-                    }
+                string txt = File.ReadAllText("test1.txt");
+                Console.WriteLine(txt);
+
+                // File.WriteAllText("test1.txt", str);
+            }
+                    
                     catch (Exception e)
                     {
                         Console.WriteLine("An error occurred");
                     }
                 finally
                 {
-                    Console.WriteLine("finally.");
-                }
-                }
+                
+            }
+                
             
         
         }
