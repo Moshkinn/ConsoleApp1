@@ -7,31 +7,18 @@ namespace SoloLearn
     {
         static void Main(string[] args)
         {
-            Queue<int> q = new Queue<int>();
-            Stack<int> s = new Stack<int>();
+            Dictionary<string, int> d = new Dictionary<string, int>();
+            d.Add("Uno", 1);
+            d.Add("One", 1);
+            d.Add("Dos", 2);
+            d.Add("Deux", 2);
+            d.Remove("One");  // Remove key-value pair One, 1
+            d.Remove("Dos");  // Remove key-value pair Dos, 2
 
-            for(int i=0; i<5; i++)
-            {
-                s.Push(i + 1);
-            }
-            foreach(int a in s) {
-                q.Enqueue(a);
-            }
-            Console.WriteLine("Stack: ");
-            foreach (int a in s)
-                Console.WriteLine(" " + a);
-            Console.WriteLine("Queue: ");
-            foreach (int a in q)
-                Console.WriteLine(" " + a);
-            q.Dequeue();
-            s.Pop();
-            Console.WriteLine("Stack: ");
-            foreach (int a in s)
-                Console.WriteLine(" " + a);
-            Console.WriteLine("Queue: ");
-            foreach (int a in q)
-                Console.WriteLine(" " + a);
-
+            Console.WriteLine("Dictionary: ");
+            foreach (string s in d.Keys)
+                Console.WriteLine(s + ": " + d[s]);  // Uno: 1  Deux: 2
+            Console.WriteLine("\nCount: {0}", d.Count); // 2 
         }
     }
 }
