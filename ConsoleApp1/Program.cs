@@ -1,27 +1,32 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace SoloLearn
 {
     class Program
     {
-        static void Main(string[] args)
+        // Printing BitArray
+        public static void PrintBarr(string name, BitArray ba)
         {
-            SortedList<string, int> sl = new SortedList<string, int>();
+            Console.Write(name + " : ");
+            for (int x = 0; x < ba.Length; x++)
+                Console.Write(ba.Get(x) + " ");
+            Console.WriteLine();
+        }
 
-            sl.Add("Solo", 59);
-            sl.Add("A", 95);
-            sl.Add("Learn", 72);
-            //.Remove("A");
-            sl.Add("test", 99);
-            Boolean isPresent = sl.ContainsKey("A");
-            Console.WriteLine(isPresent);
-            Console.WriteLine(sl["Solo"]);
-            sl["test"] = 11;
-            Console.WriteLine("Sorted List: ");
-            foreach (string s in sl.Keys)
-                Console.WriteLine(s + ": " + sl[s]);  // Learn: 72  Solo: 59
-            Console.WriteLine("\nCount: " + sl.Count);  // 2
+        public static void Main(string[] args)
+        {
+            BitArray ba1 = new BitArray(8);
+            BitArray ba2 = new BitArray(8);
+            ba1[0] = true;
+            ba2[1] = true;
+            ba1 = ba1.Or(ba2);
+            //Console.WriteLine("ba1: ");
+            PrintBarr("ba1 ", ba1);
         }
     }
 }
