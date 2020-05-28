@@ -7,18 +7,21 @@ namespace SoloLearn
     {
         static void Main(string[] args)
         {
-            // Dictionary<string, int> d = new Dictionary<string, int>();
+            HashSet<int> hs = new HashSet<int>();
 
-            Dictionary<string, string> d = new Dictionary<string, string>();
-            Console.WriteLine("Dictionary: ");
-            d.Add("name", "Bob");
-            //d.Add("name", "Bobs");
+            hs.Add(5);
+            hs.Add(10);
+            hs.Add(15);
+            hs.Add(20);
+            Console.Write("\nHashSet: ");
+            foreach (int i in hs)
+                Console.Write(i + " ");  // 5  10  15  20  *elements may be in any order
+            Console.Write("\nCount: " + hs.Count);  // 4
 
-            d.Add("age", "25");
-            d.Add("sex", "male");
-            foreach (string s in d.Keys)
-                Console.WriteLine(s + ": " + d[s]);  // Uno: 1  Deux: 2
-            Console.WriteLine("\nCount: {0}", d.Count); // 2 
+            HashSet<int> hs2 = new HashSet<int>();
+            hs2.Add(15);
+            hs2.Add(20);
+            Console.Write("\n{15, 20} is a subset of {5, 10, 15, 20}: " + hs2.IsSubsetOf(hs)); // True 
         }
     }
 }
