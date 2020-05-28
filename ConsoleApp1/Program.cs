@@ -3,35 +3,38 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.IO;
 
 namespace SoloLearn
 {
     class Program
     {
+        class Stack<T>
+        {
+            int index = 0;
+            T[] innerArray = new T[100];
+            public void Push(T item)
+            {
+                innerArray[index++] = item;
+            }
+            public T Pop()
+            {
+                return innerArray[--index];
+            }
+            public T Get(int k) { return innerArray[k]; }
+        }
         static void Main(string[] args)
         {
-            string str = "Some text";
-            //str = Console.ReadLine();
-            try
-                    {
-                string txt = File.ReadAllText("test1.txt");
-                Console.WriteLine(txt);
+            Stack<int> intStack = new Stack<int>();
+            intStack.Push(3);
+            Console.WriteLine(intStack.Pop());
+            intStack.Push(6);
+            Console.WriteLine(intStack.Pop());
+            intStack.Push(7);
+            Console.WriteLine(intStack.Pop());
 
-                // File.WriteAllText("test1.txt", str);
-            }
-                    
-                    catch (Exception e)
-                    {
-                        Console.WriteLine("An error occurred");
-                    }
-                finally
-                {
-                
-            }
-                
-            
-        
+            //intStack.Push(8);
+
+            Console.WriteLine(intStack.Get(0));
         }
     }
 }
