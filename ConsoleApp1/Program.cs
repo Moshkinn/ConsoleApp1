@@ -7,24 +7,31 @@ namespace SoloLearn
     {
         static void Main(string[] args)
         {
+            Queue<int> q = new Queue<int>();
             Stack<int> s = new Stack<int>();
 
-            s.Push(59);
-            s.Push(72);
-            s.Push(65);
+            for(int i=0; i<5; i++)
+            {
+                s.Push(i + 1);
+            }
+            foreach(int a in s) {
+                q.Enqueue(a);
+            }
+            Console.WriteLine("Stack: ");
+            foreach (int a in s)
+                Console.WriteLine(" " + a);
+            Console.WriteLine("Queue: ");
+            foreach (int a in q)
+                Console.WriteLine(" " + a);
+            q.Dequeue();
+            s.Pop();
+            Console.WriteLine("Stack: ");
+            foreach (int a in s)
+                Console.WriteLine(" " + a);
+            Console.WriteLine("Queue: ");
+            foreach (int a in q)
+                Console.WriteLine(" " + a);
 
-            Console.Write("Stack: ");
-            foreach (int i in s)
-                Console.Write(i + " ");  // 65  72  59
-            Console.Write("\nCount: " + s.Count);  // 3
-
-            Console.Write("\nTop: " + s.Peek());  // 65
-            Console.Write("\nPop: " + s.Pop());  // 65
-
-            Console.Write("\nStack: ");
-            foreach (int i in s)
-                Console.Write(i + " ");  // 72  59
-            Console.Write("\nCount: " + s.Count);  // 2
         }
     }
 }
