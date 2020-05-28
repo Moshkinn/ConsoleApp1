@@ -1,32 +1,30 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SoloLearn
 {
     class Program
     {
-        // Printing BitArray
-        public static void PrintBarr(string name, BitArray ba)
+        static void Main(string[] args)
         {
-            Console.Write(name + " : ");
-            for (int x = 0; x < ba.Length; x++)
-                Console.Write(ba.Get(x) + " ");
-            Console.WriteLine();
-        }
+            Stack<int> s = new Stack<int>();
 
-        public static void Main(string[] args)
-        {
-            BitArray ba1 = new BitArray(8);
-            BitArray ba2 = new BitArray(8);
-            ba1[0] = true;
-            ba2[1] = true;
-            ba1 = ba1.Or(ba2);
-            //Console.WriteLine("ba1: ");
-            PrintBarr("ba1 ", ba1);
+            s.Push(59);
+            s.Push(72);
+            s.Push(65);
+
+            Console.Write("Stack: ");
+            foreach (int i in s)
+                Console.Write(i + " ");  // 65  72  59
+            Console.Write("\nCount: " + s.Count);  // 3
+
+            Console.Write("\nTop: " + s.Peek());  // 65
+            Console.Write("\nPop: " + s.Pop());  // 65
+
+            Console.Write("\nStack: ");
+            foreach (int i in s)
+                Console.Write(i + " ");  // 72  59
+            Console.Write("\nCount: " + s.Count);  // 2
         }
     }
 }
