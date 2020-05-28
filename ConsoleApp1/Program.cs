@@ -24,17 +24,29 @@ namespace SoloLearn
         }
         static void Main(string[] args)
         {
-            Stack<int> intStack = new Stack<int>();
+            /*Stack<int> intStack = new Stack<int>();
             intStack.Push(3);
             Console.WriteLine(intStack.Pop());
             intStack.Push(6);
             Console.WriteLine(intStack.Pop());
             intStack.Push(7);
             Console.WriteLine(intStack.Pop());
-
             //intStack.Push(8);
-
             Console.WriteLine(intStack.Get(0));
+            */
+            ///////////////////////////////////////
+            Stack<string> sStack = new Stack<string>();
+            sStack.Push("a");
+            sStack.Pop();
+            sStack.Push("b");
+            sStack.Push("c");
+            Console.WriteLine(sStack.Get(0));
+            for(int i = 0; i<10; i++)
+            {
+                sStack.Push("bb");
+            }
+            Console.WriteLine(sStack.Get(10));
+
         }
     }
 }
