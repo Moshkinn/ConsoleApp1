@@ -1,5 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
+//using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace SoloLearn
 {
@@ -7,21 +8,35 @@ namespace SoloLearn
     {
         static void Main(string[] args)
         {
-            HashSet<int> hs = new HashSet<int>();
+            string data = "3,'a','b','c','d'";
+            string myConnectionString = "server=192.168.2.104;database=db1;uid=n;pwd=secret;";
 
-            hs.Add(5);
-            hs.Add(10);
-            hs.Add(15);
-            hs.Add(20);
-            Console.Write("\nHashSet: ");
-            foreach (int i in hs)
-                Console.Write(i + " ");  // 5  10  15  20  *elements may be in any order
-            Console.Write("\nCount: " + hs.Count);  // 4
-
-            HashSet<int> hs2 = new HashSet<int>();
-            hs2.Add(15);
-            hs2.Add(20);
-            Console.Write("\n{15, 20} is a subset of {5, 10, 15, 20}: " + hs2.IsSubsetOf(hs)); // True 
+            MySqlConnection myConnection = new MySqlConnection(myConnectionString);
+            string myInsertQuery = "INSERT INTO Persons Values(" + data + ")";
+            MySqlCommand myCommand = new MySqlCommand(myInsertQuery);
+            myCommand.Connection = myConnection;
+            myConnection.Open();
+            myCommand.ExecuteNonQuery();
+            myCommand.Connection.Close();
         }
     }
 }
+
+/*
+ *                 MySqlConnection cnn;
+                string connetionString = "server=192.168.2.104;database=db1;uid=n;pwd=secret;";
+                cnn = new MySqlConnection(connetionString);
+                try
+                {
+                    cnn.Open();
+                    Console.Write("Connection Open ! ");
+                    cnn.Close();
+                }
+                catch (Exception ex)
+                {
+                Console.WriteLine("Can not open connection ! ");
+                Console.WriteLine(ex);
+                }
+                */
+
+
